@@ -25,10 +25,6 @@ RUN apt-get -qq update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /var/tmp/*
 
-# Install components from dolfinx/lab
-RUN pip3 install pyvista matplotlib pythreejs ipygany && \
-    pip3 cache purge && \
-    jupyter nbextension enable --py --sys-prefix ipygany
 
 
 
