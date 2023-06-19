@@ -45,11 +45,11 @@ RUN git clone https://github.com/FEniCS/dolfinx.git && \
     cd dolfinx && \
     git checkout ${DOLFINX_BRANCH} && \
     cd .. && \
-    PETSC_ARCH=${PETSC_ARCH} cmake -G Ninja -DCMAKE_BUILD_TYPE=${DOLFINX_BUILD_TYPE} -B build-dolfinx -S ./dolfinx/cpp/ && \
-    cmake --build build-dolfinx && \
-    cmake --install build-dolfinx && \
-    . /usr/local/lib/dolfinx/dolfinx.conf && \
-    PETSC_ARCH=${PETSC_ARCH}  BUILD_TYPE=${BUILD_TYPE} python3 -m pip -v install ./dolfinx/python/
+    cmake -G Ninja -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -B build-dolfinx -S ./dolfinx/cpp/  && \
+    cmake --build build-dolfinx  && \
+     cmake --install build-dolfinx && \
+     BUILD_TYPE=${BUILD_TYPE} python3 -m pip -v install ./dolfinx/python/ 
+ 
 
 RUN git clone https://github.com/Wells-Group/asimov-contact.git && \
  cmake -G Ninja -DCMAKE_BUILD_TYPE="Debug -DCMAKE_CXX_FLAGS="-Wall -Werror -g -pedantic -Ofast -march=native" -B build-contact -S cpp/ && \
