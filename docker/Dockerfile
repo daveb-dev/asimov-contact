@@ -17,7 +17,7 @@ ARG JUPYTER_TYPE="lab"
 
 # Install python dependencies
 RUN pip3 install --upgrade pip 
-RUN HDF5_MPI=${HDF5_MPI} CC=mpicc HDF5_DIR=${HDF5_DIR} pip3 install --no-cache-dir -r requirements.txt
+#RUN HDF5_MPI=${HDF5_MPI} CC=mpicc HDF5_DIR=${HDF5_DIR} pip3 install --no-cache-dir -r requirements.txt
 
 # pyvista dependencies from apt
 RUN apt-get -qq update && \
